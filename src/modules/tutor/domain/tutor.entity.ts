@@ -5,22 +5,14 @@ import {
   ArgumentNotProvidedException,
   ArgumentOutOfRangeException
 } from '../../../libs/exceptions';
+import { BaseEntity } from '../../../libs/utils/entity.base';
 
-export class TutorEntity {
-  private readonly id: string;
-  private name: string;
-  private phone_number: string;
-  private email: string;
-  private readonly date_of_birth: Date;
-  private zip_code: string;
+export class TutorEntity extends BaseEntity<CreateTutorProps> {
+  protected readonly id: string;
 
   constructor(id: string, props: CreateTutorProps) {
+    super({ id: id, props: props });
     this.id = id;
-    this.name = props.name;
-    this.phone_number = props.phone_number;
-    this.email = props.email;
-    this.date_of_birth = props.date_of_birth;
-    this.zip_code = props.zip_code;
   }
 
   public static create(create: CreateTutorProps): TutorEntity {
@@ -38,22 +30,22 @@ export class TutorEntity {
   private ChangeTutorInformation(update: ChangeTutorInformationProps): void {
     if (update.name) {
       TutorEntity.ValidateName(update.name);
-      this.name = update.name;
+      this.props.name = update.name;
     }
 
     if (update.phone_number) {
       TutorEntity.ValidatePhoneNumber(update.phone_number);
-      this.phone_number = update.phone_number;
+      this.props.phone_number = update.phone_number;
     }
 
     if (update.email) {
       TutorEntity.ValidateEmail(update.email);
-      this.email = update.email;
+      this.props.email = update.email;
     }
 
     if (update.zip_code) {
       TutorEntity.ValidateZipCode(update.zip_code);
-      this.zip_code = update.zip_code;
+      this.props.zip_code = update.zip_code;
     }
   }
 
@@ -62,8 +54,8 @@ export class TutorEntity {
       throw new ArgumentNotProvidedException('Name cannot be empty');
     }
 
-    if (name.length > 100) {
-      throw new ArgumentOutOfRangeException('Name cannot be over 100 characters');
+    if (name.length > 70) {
+      throw new ArgumentOutOfRangeException('Name cannot be over 70 characters');
     }
   }
 
@@ -72,8 +64,8 @@ export class TutorEntity {
       throw new ArgumentNotProvidedException('Phone Number cannot be empty');
     }
 
-    if (phone_number.length > 30) {
-      throw new ArgumentOutOfRangeException('Phone Number cannot be over 30 characters');
+    if (phone_number.length > 15) {
+      throw new ArgumentOutOfRangeException('Phone Number cannot be over 15 characters');
     }
 
     if (isNaN(Number(phone_number))) {
@@ -86,8 +78,8 @@ export class TutorEntity {
       throw new ArgumentNotProvidedException('Email cannot be empty');
     }
 
-    if (email.length > 50) {
-      throw new ArgumentOutOfRangeException('Email cannot be over 50 characters');
+    if (email.length > 256) {
+      throw new ArgumentOutOfRangeException('Email cannot be over 256 characters');
     }
 
     if (
@@ -104,8 +96,8 @@ export class TutorEntity {
       throw new ArgumentNotProvidedException('Zip Code cannot be empty');
     }
 
-    if (zip_code.length > 10) {
-      throw new ArgumentOutOfRangeException('Zip Code cannot be over 30 characters');
+    if (zip_code.length > 15) {
+      throw new ArgumentOutOfRangeException('Zip Code cannot be over 15 characters');
     }
 
     if (!/^[a-z0-9]+$/i.exec(zip_code)) {
