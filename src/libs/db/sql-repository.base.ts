@@ -1,13 +1,13 @@
+import { ConflictException } from '@libs/exceptions';
+import { RepositoryPort } from '@libs/ports/repository.port';
+import { BaseEntity } from '@libs/utils/entity.base';
 import {
   DatabasePool,
   IdentifierSqlToken,
-  sql,
-  UniqueIntegrityConstraintViolationError
+  UniqueIntegrityConstraintViolationError,
+  sql
 } from 'slonik';
-import { RepositoryPort } from '@libs/ports/repository.port';
-import { BaseEntity } from '@libs/utils/entity.base';
 import { ZodObject } from 'zod';
-import { ConflictException } from '@libs/exceptions';
 
 export abstract class SqlRepositoryBase<Entity extends BaseEntity<any>>
   implements RepositoryPort<Entity>

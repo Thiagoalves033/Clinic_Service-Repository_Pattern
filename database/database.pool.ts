@@ -1,4 +1,4 @@
-import { createPool, DatabasePool } from 'slonik';
+import { DatabasePool, createPool } from 'slonik';
 
 export async function getDatabasePool(): Promise<DatabasePool> {
   return await createPool(

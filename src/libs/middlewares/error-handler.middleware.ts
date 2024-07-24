@@ -1,5 +1,5 @@
-import { NextFunction, Request, Response } from 'express';
 import { ValidationException } from '@libs/dto/dto.validation.exception';
+import { NextFunction, Request, Response } from 'express';
 
 export function errorHandler(
   error: any,

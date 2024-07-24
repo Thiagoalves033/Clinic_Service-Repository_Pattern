@@ -1,11 +1,11 @@
-import { randomUUID } from 'crypto';
-import { ChangeTutorInformationProps, CreateTutorProps } from './tutor.types';
 import {
   ArgumentInvalidException,
   ArgumentNotProvidedException,
   ArgumentOutOfRangeException
 } from '@libs/exceptions';
 import { BaseEntity } from '@libs/utils/entity.base';
+import { randomUUID } from 'crypto';
+import { ChangeTutorInformationProps, CreateTutorProps } from './tutor.types';
 
 export class TutorEntity extends BaseEntity<CreateTutorProps> {
   protected readonly id: string;

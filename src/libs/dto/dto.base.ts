@@ -1,5 +1,5 @@
-import { z, ZodError, ZodType } from 'zod';
 import { ObjectLiteral } from '@libs/types/object-literal.type';
+import { ZodError, ZodType, z } from 'zod';
 import { ValidationException } from './dto.validation.exception';
 
 export abstract class BaseDto<Schema extends ZodType> {

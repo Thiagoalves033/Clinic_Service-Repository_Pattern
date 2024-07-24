@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from 'express';
-import { CreateTutorService } from './create-tutor.service';
 import { CreateTutorRequestDto } from './create-tutor.request.dto';
 import { CreateTutorResponseDto } from './create-tutor.response.dto';
+import { CreateTutorService } from './create-tutor.service';
 
 export class CreateTutorHttpController {
   constructor(private readonly service: CreateTutorService) {}
