@@ -1,5 +1,5 @@
+import { BaseDto } from '@src/libs/dto';
 import z from 'zod';
-import { BaseDto } from '../../../../libs/dto/dto.base';
 
 export const createTutorResponseSchema = z.object({
   name: z.string().min(1).max(70),

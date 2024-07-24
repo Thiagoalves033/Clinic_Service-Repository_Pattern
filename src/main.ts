@@ -4,7 +4,7 @@ dotenv.config();
 import Server from './server';
 import express, { Express } from 'express';
 import { setupTutorRoute } from './modules/tutor/tutor.routes';
-import errorHandler from './libs/middlewares/error-handler.middleware';
+import { errorHandler } from '@libs/middlewares';
 
 const app: Express = express();
 

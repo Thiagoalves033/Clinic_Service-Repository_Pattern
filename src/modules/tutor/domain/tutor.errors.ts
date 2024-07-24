@@ -1,4 +1,4 @@
-import { ExceptionBase } from '../../../libs/exceptions';
+import { ExceptionBase } from '@src/libs/exceptions';
 
 export class TutorAlreadyExistsException extends ExceptionBase {
   static readonly message = 'Tutor already exists';

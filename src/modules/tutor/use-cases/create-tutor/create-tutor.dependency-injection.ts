@@ -1,5 +1,5 @@
-import { getDatabasePool } from '../../../../../database/database.pool';
-import { TutorRepository } from '../../storage/tutor.repository';
+import { getDatabasePool } from '@database/database.pool';
+import { TutorRepository } from '@modules/tutor/storage/tutor.repository';
 import { CreateTutorHttpController } from './create-tutor.controller';
 import { CreateTutorService } from './create-tutor.service';
 

@@ -4,8 +4,8 @@ import {
   ArgumentInvalidException,
   ArgumentNotProvidedException,
   ArgumentOutOfRangeException
-} from '../../../libs/exceptions';
-import { BaseEntity } from '../../../libs/utils/entity.base';
+} from '@libs/exceptions';
+import { BaseEntity } from '@libs/utils/entity.base';
 
 export class TutorEntity extends BaseEntity<CreateTutorProps> {
   protected readonly id: string;

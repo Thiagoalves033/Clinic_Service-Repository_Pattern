@@ -1,8 +1,8 @@
-import { ConflictException } from '../../../../libs/exceptions';
-import { TutorEntity } from '../../domain/tutor.entity';
-import { TutorAlreadyExistsException } from '../../domain/tutor.errors';
-import { CreateTutorProps } from '../../domain/tutor.types';
-import { TutorRepository } from '../../storage/tutor.repository';
+import { ConflictException } from '@src/libs/exceptions';
+import { TutorEntity } from '@modules/tutor/domain/tutor.entity';
+import { TutorAlreadyExistsException } from '@modules/tutor/domain/tutor.errors';
+import { CreateTutorProps } from '@modules/tutor/domain/tutor.types';
+import { TutorRepository } from '@modules/tutor/storage/tutor.repository';
 
 export class CreateTutorService {
   constructor(private readonly tutorRepo: TutorRepository) {}

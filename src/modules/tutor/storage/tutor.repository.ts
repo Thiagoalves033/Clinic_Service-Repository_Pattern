@@ -1,6 +1,6 @@
 import z from 'zod';
-import { SqlRepositoryBase } from '../../../libs/db/sql-repository.base';
-import { TutorEntity } from '../domain/tutor.entity';
+import { SqlRepositoryBase } from '@libs/db/sql-repository.base';
+import { TutorEntity } from '@modules/tutor/domain/tutor.entity';
 import { DatabasePool } from 'slonik';
 
 export const tutorSchema = z.object({
