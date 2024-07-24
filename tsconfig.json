@@ -12,6 +12,14 @@
     "moduleResolution": "NodeNext",
     "module": "NodeNext",
     "outDir": "./dist",
-    "lib": ["es2022"]
+    "lib": ["es2022"],
+    "baseUrl": "./",
+    "paths": {
+      "@src/*": ["src/*"],
+      "@modules/*": ["src/modules/*"],
+      "@libs/*": ["src/libs/*"],
+      "@database/*": ["database/*"],
+      "@tests/*": ["tests/*"]
+    }
   }
 }
