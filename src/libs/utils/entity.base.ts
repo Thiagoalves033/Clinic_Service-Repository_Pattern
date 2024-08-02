@@ -28,4 +28,51 @@ export abstract class BaseEntity<EntityProps> {
   private setId(id: string): void {
     this.id = id;
   }
+
+  public getId(): string {
+    return this.id;
+  }
+
+  public getCreatedAt(): Date {
+    return this.createdAt;
+  }
+
+  public getUpdatedAt(): Date {
+    return this.updatedAt;
+  }
+
+  public setUpdatedAt(): void {
+    this.updatedAt = new Date(Date.now());
+  }
+
+  public getProps(): EntityProps | BaseEntityProps {
+    const props = {
+      id: this.id,
+      createdAt: this.createdAt,
+      updatedAt: this.updatedAt,
+      ...this.props
+    };
+
+    return props;
+  }
+
+  public static isEntity(entity: unknown): entity is BaseEntity<unknown> {
+    return entity instanceof BaseEntity;
+  }
+
+  public equals(object?: BaseEntity<EntityProps>): boolean {
+    if (object === null || object === undefined) {
+      return false;
+    }
+
+    if (!BaseEntity.isEntity(object)) {
+      return false;
+    }
+
+    if (JSON.stringify(this.props) === JSON.stringify(object.props)) {
+      return true;
+    }
+
+    return false;
+  }
 }
