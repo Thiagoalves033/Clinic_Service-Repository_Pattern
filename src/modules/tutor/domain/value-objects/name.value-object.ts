@@ -7,7 +7,7 @@ export interface NameProps {
 
 export class Name extends BaseValueObject<NameProps> {
   getName() {
-    return this.props;
+    return this.props.name;
   }
 
   protected validate(props: NameProps): void {

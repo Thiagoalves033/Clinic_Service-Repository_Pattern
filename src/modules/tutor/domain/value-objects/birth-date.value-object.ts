@@ -8,7 +8,7 @@ export interface BirthDateProps {
 
 export class BirthDate extends BaseValueObject<BirthDateProps> {
   getBirthDate() {
-    return this.props;
+    return this.props.date_of_birth;
   }
 
   protected validate(props: BirthDateProps): void {
