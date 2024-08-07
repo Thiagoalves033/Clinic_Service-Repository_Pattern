@@ -35,7 +35,6 @@ describe('Tutor Entity', () => {
   };
 
   let tutor: TutorEntity;
-  let firstPet: PetEntity;
 
   beforeEach(() => {
     tutor = TutorEntity.create(tutorProps);
@@ -77,9 +76,7 @@ describe('Tutor Entity', () => {
       phone_number: '1234567890',
       email: 'jn@janedoe.com'
     });
-    expect(tutor.getName()).toMatchObject({
-      name: 'Jane Doe'
-    });
+    expect(tutor.getName()).toEqual('Jane Doe');
   });
 
   it('Should throw an error if fields are not valid', () => {
