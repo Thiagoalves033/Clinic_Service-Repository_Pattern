@@ -45,7 +45,7 @@ export abstract class BaseEntity<EntityProps> {
     this.updatedAt = new Date(Date.now());
   }
 
-  public getProps(): EntityProps | BaseEntityProps {
+  public getProps(): EntityProps & BaseEntityProps {
     const props = {
       id: this.id,
       createdAt: this.createdAt,
