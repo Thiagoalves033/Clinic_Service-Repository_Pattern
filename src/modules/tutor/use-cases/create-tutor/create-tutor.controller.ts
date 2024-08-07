@@ -10,7 +10,7 @@ export class CreateTutorHttpController {
     try {
       const parsedRequest = new CreateTutorRequestDto({ ...req.body });
 
-      await this.service.execute(parsedRequest.getProperties());
+      await this.service.execute(parsedRequest);
 
       res
         .status(200)
