@@ -8,6 +8,7 @@ import {
 } from 'slonik';
 import z from 'zod';
 import { TutorMapper } from '../tutor.mapper';
+import { ITutorRepository } from './tutor.repository.port';
 
 export const tutorSchema = z.object({
   id: z.string().uuid(),
@@ -24,7 +25,7 @@ export const tutorSchema = z.object({
 
 export type TutorModel = z.TypeOf<typeof tutorSchema>;
 
-export class TutorRepository {
+export class TutorRepository implements ITutorRepository {
   protected tableName = 'tutors';
   protected schema = tutorSchema;
   protected mapper = new TutorMapper();
@@ -34,7 +35,7 @@ export class TutorRepository {
     this.pool = pool;
   }
 
-  async insertTutor(tutor: TutorEntity) {
+  async insertTutor(tutor: TutorEntity): Promise<void> {
     const mappedTutor = this.mapper.toPersistence(tutor);
 
     const propertyNames: IdentifierSqlToken[] = [];

@@ -2,11 +2,11 @@ import { ConflictException } from '@src/libs/exceptions';
 import { TutorEntity } from '@modules/tutor/domain/tutor.entity';
 import { TutorAlreadyExistsException } from '@modules/tutor/domain/tutor.errors';
 import { Address, BirthDate, Contact, Name } from '@modules/tutor/domain/value-objects';
-import { TutorRepository } from '@modules/tutor/storage/tutor.repository';
+import { ITutorRepository } from '../../storage/tutor.repository.port';
 import { CreateTutorRequestDto } from './create-tutor.request.dto';
 
 export class CreateTutorService {
-  constructor(private readonly tutorRepo: TutorRepository) {}
+  constructor(private readonly tutorRepo: ITutorRepository) {}
 
   async execute(props: CreateTutorRequestDto): Promise<TutorEntity | TutorAlreadyExistsException> {
     const createTutor = props.getProperties();
