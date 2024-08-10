@@ -81,7 +81,13 @@ describe('Tutor Entity', () => {
 
   it('Should throw an error if fields are not valid', () => {
     expect(() => tutor.updateTutorContact({ phone_number: '1' })).toThrowError('greater');
+    expect(() => tutor.updateTutorContact({ phone_number: 'invalidNumber' })).toThrowError('valid');
+    expect(() => tutor.updateTutorContact({ email: 'invalidEmail' })).toThrowError('valid');
     expect(() => tutor.updateTutorName({ name: null as unknown as string })).toThrowError('empty');
     expect(() => tutor.updateTutorAddress({ zip_code: '$$$' })).toThrowError('valid');
+  });
+
+  it('Should not allow an invalid BirthDate to be created', () => {
+    expect(() => new BirthDate({ date_of_birth: new Date(Date.now() + 10) })).toThrowError('valid');
   });
 });
