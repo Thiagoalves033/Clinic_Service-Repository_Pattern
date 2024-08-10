@@ -13,7 +13,7 @@ export class CreateTutorHttpController {
       await this.service.execute(parsedRequest);
 
       res
-        .status(200)
+        .status(201)
         .json({ tutor: new CreateTutorResponseDto(parsedRequest.getProperties()).getProperties() });
     } catch (error) {
       next(error);
