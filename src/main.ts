@@ -1,18 +1,19 @@
+import { getDatabasePool } from '@database/database.pool';
 import { errorHandler } from '@libs/middlewares';
 import dotenv from 'dotenv';
-import express, { Express } from 'express';
-import { setupTutorRoute } from './modules/tutor/tutor.routes';
+import express from 'express';
+import { initTutorModule } from './modules/tutor';
 import Server from './server';
 
 dotenv.config();
-
-const app: Express = express();
+const app = express();
 
 (async () => {
-  const tutorRoute = await setupTutorRoute();
+  const dbPool = await getDatabasePool();
+  const tutorModule = await initTutorModule(dbPool);
 
   app.use(express.json());
-  app.use('/', tutorRoute);
+  app.use('/tutor', tutorModule);
   app.use(errorHandler);
 })();
 

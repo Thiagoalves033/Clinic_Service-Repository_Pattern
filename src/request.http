@@ -1,0 +1,7 @@
+### Create new Tutor
+POST http://localhost:3000/tutor/create
+Content-Type: application/json
+
+{   
+"basd": "asdasd"
+}
